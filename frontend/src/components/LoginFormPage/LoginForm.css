@@ -1,0 +1,72 @@
+.loginPage {
+    width: 50%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.credentialInput {
+    margin-bottom: 10px;
+    padding: 3px 5px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.306);
+    transition: .2s;
+    border-radius: 2px;
+    font-size: 10px;
+}
+
+.credentialInput:hover {
+    border: 1px solid rgba(0, 0, 0, .5);
+}
+.passInput {
+    margin-bottom: 10px;
+    padding: 3px 5px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.306);
+    transition: .2s;
+    border-radius: 2px;
+    font-size: 10px;
+}
+
+.passInput:hover {
+    border: 1px solid rgba(0, 0, 0, .5);
+}
+
+.loginForm > h1 {
+    color: rgb(32, 7, 59);
+}
+
+input {
+    border: none;
+    margin: 5px;
+    border-style: none;
+    outline: none;
+    width: 100%;
+    overflow-x: unset;
+    cursor: text;
+}
+
+button {
+    background-color: rgb(198, 58, 27);
+    transition: .2s;
+    color: white;
+    padding: 10px 60px;
+    border: 0px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(198, 58, 27, .925);
+    cursor: pointer;
+}

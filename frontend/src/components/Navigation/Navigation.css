@@ -1,0 +1,12 @@
+.profile-dropdown {
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+.profile-button {
+    margin: 0px 5px;
+    display: flex;
+    justify-content: end;
+}
