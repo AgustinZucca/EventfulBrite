@@ -25,6 +25,8 @@ const LoginFormPage = () => {
     );
   };
 
+  console.log(errors)
+
   return (
     <div className="loginPage">
       <form className="loginForm" onSubmit={handleSubmit}>
