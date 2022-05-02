@@ -14,7 +14,7 @@ module.exports = {
       [
         {
           email: "demouser@demo.com",
-          username: "demo",
+          username: "demouser",
           hashedPassword: bcrypt.hashSync("password"),
         },
         {
@@ -40,7 +40,7 @@ module.exports = {
       Example:
       */
       return queryInterface.bulkDelete('Users', {
-        username: { [Op.in]: ['demoUser98', 'FakeUser1', 'FakeUser2']}
+        username: { [Op.in]: ['demouser', 'FakeUser1', 'FakeUser2']}
       }, {});
   },
 };

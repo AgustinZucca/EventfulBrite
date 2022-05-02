@@ -10,3 +10,12 @@
     display: flex;
     justify-content: end;
 }
+
+.demoButton {
+    background-color: orange;
+    color: white;
+    width: fit-content;
+    padding: 5px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
