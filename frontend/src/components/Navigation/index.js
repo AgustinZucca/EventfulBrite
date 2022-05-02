@@ -7,18 +7,20 @@ import "./Navigation.css";
 const Navigation = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const demoUser = {
-    username: "demouser",
-    email: "demouser@demo.com",
-    password: "password",
-  };
+  const credential = "demouser";
+  const password = "password";
+
 
   const handleClick = () => {
     return dispatch(sessionActions.logoutUser());
   };
 
   const demoLogin = () => {
-    return dispatch(sessionActions.login(demoUser));
+    return dispatch(sessionActions.loginUser({credential, password})).catch(
+      async (res) => {
+        const data = await res.json();
+      }
+    );
   };
 
   if (!sessionUser) {
