@@ -7,11 +7,10 @@ const CreateEventFormPage = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const categories = useSelector((state) => state.events.categories);
-  console.log(categories)
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(categories[0]);
   const [location, setLocation] = useState("");
   const [capacity, setCapacity] = useState(0);
   const [errors, setErrors] = useState([]);
@@ -44,7 +43,7 @@ const CreateEventFormPage = () => {
       setDate("");
       setDescription("");
       setCapacity(0);
-      setCategory("");
+      setCategory(categories[0]);
       setLocation("");
       setErrors([]);
     };
@@ -89,7 +88,9 @@ const CreateEventFormPage = () => {
         </div>
         <div className="categorySelection">
           <label>Category</label>
-          <select>
+          <select 
+            onChange={e => setCategory(e.target.value)}
+            value={category}>
             {categories.map(({id, name}) => (
               <option key={id} value={id}>{name}</option>
             ))}
