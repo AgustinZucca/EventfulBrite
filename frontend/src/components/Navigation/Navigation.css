@@ -19,3 +19,34 @@
     border-radius: 4px;
     cursor: pointer;
 }
+
+.createEventLink {
+    text-decoration: none;
+    color: rgb(67, 67, 255);
+}
+
+.createEventButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: blue;
+    margin: 0px 5px;
+}
+
+.browseEventsLink {
+    text-decoration: none;
+    color: rgb(67, 67, 255);
+}
+
+.browseEventsButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: blue;
+    margin: 0px 5px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: end;
+}

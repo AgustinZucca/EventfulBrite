@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
@@ -10,17 +10,12 @@ const Navigation = () => {
   const credential = "demouser";
   const password = "password";
 
-
   const handleClick = () => {
     return dispatch(sessionActions.logoutUser());
   };
 
   const demoLogin = () => {
-    return dispatch(sessionActions.loginUser({credential, password})).catch(
-      async (res) => {
-        const data = await res.json();
-      }
-    );
+    return dispatch(sessionActions.loginUser({ credential, password }));
   };
 
   if (!sessionUser) {
@@ -41,7 +36,15 @@ const Navigation = () => {
     );
   } else {
     return (
-      <div>
+      <div className="navbar">
+        <div className='createEventButton'>
+          <i class="fa-solid fa-plus"></i>
+          <NavLink className='createEventLink' to='/events/new'>Create Event</NavLink>
+        </div>
+        <div className='browseEventsButton'>
+          <i class="fa-solid fa-list"></i>
+          <NavLink className='browseEventsLink' to='/events'>Browse Events</NavLink>
+        </div>
         <ProfileButton user={sessionUser} />
       </div>
     );

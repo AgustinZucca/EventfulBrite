@@ -1,0 +1,46 @@
+.createEventPage {
+    display: flex;
+    justify-content: center;
+}
+
+.formInput {
+    width: 300px;
+    height: 50px;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.createEventForm > div {
+    width: 100%;
+    background-color: transparent;
+    padding: 5px 5px;
+}
+.createEventForm > div > input{
+    width: 100%;
+    background-color: transparent;
+    padding: 5px 5px;
+}
+
+.dateInput {
+    width: 50%;
+}
+
+.eventcreatelabel {
+    font-size: 12px;
+    position: relative;
+    left: 5px;
+}
+
+.categorySelection {
+    display: flex;
+    flex-direction: column;
+}
+
+.categorySelection > select {
+    width: fit-content;
+    margin: 6px;
+    padding: 5px;
+}

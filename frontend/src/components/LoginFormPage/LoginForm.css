@@ -47,7 +47,7 @@
     color: rgb(32, 7, 59);
 }
 
-input {
+.loginForm > input {
     border: none;
     margin: 5px;
     border-style: none;
