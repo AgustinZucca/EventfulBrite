@@ -37,13 +37,21 @@ const Navigation = () => {
   } else {
     return (
       <div className="navbar">
-        <div className='createEventButton'>
-          <i class="fa-solid fa-plus"></i>
-          <NavLink className='createEventLink' to='/events/new'>Create Event</NavLink>
+        <div className="createEventButton">
+          <NavLink className="createEventLink" to="/events/new">
+            <i class="fa-solid fa-plus"></i>
+          </NavLink>
+          <NavLink className="createEventLink" to="/events/new">
+            Create Event
+          </NavLink>
         </div>
-        <div className='browseEventsButton'>
-          <i class="fa-solid fa-list"></i>
-          <NavLink className='browseEventsLink' to='/events'>Browse Events</NavLink>
+        <div className="browseEventsButton">
+          <NavLink className="browseEventsLink" to="/events">
+            <i class="fa-solid fa-list"></i>
+          </NavLink>
+          <NavLink className="browseEventsLink" to="/events">
+            Browse Events
+          </NavLink>
         </div>
         <ProfileButton user={sessionUser} />
       </div>

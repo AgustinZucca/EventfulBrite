@@ -11,7 +11,7 @@ const LoginFormPage = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/events" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,7 +53,7 @@ const LoginFormPage = () => {
             required
           ></input>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className="loginBtn">Login</button>
       </form>
     </div>
   );

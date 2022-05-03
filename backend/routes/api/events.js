@@ -34,12 +34,6 @@ router.post('/', validateEventCreation, asyncHandler(async (req, res) => {
 router.get('/', asyncHandler(async (req, res) => {
     const events = await Event.findAll()
     res.json(events)
-}))
-
-//GET SINGLE EVENT --
-router.get('/', asyncHandler(async (req, res) => {
-    const events = await Event.findAll()
-    res.json(events)
-}))
+}));
 
 module.exports = router;

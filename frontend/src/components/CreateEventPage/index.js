@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import * as eventActions from "../../store/events";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import "./CreateEvent.css";
 
 const CreateEventFormPage = () => {
+  const history = useHistory()
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const categories = useSelector((state) => state.events.categories);
@@ -55,7 +56,11 @@ const CreateEventFormPage = () => {
         if (data && data.errors) setErrors(data.errors);
       }
     );
-    if (event) return reset();
+
+    if (event) {
+      history.push('/events')
+      return;
+    }
   };
 
   return (
@@ -97,7 +102,7 @@ const CreateEventFormPage = () => {
             onChange={(e) => setCategory(e.target.value)}
             value={category}
           >
-            <option selected hidden>
+            <option defaultValue hidden>
               Category
             </option>
             {categories.map(({ id, name }) => (

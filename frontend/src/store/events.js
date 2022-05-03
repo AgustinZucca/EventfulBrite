@@ -3,10 +3,19 @@ import { csrfFetch } from "./csrf";
 export const CREATE_EVENT = "events/new";
 export const LOAD_EVENTS = "events/load";
 export const GET_CATEGORIES = "categories/read";
+export const UPDATE_EVENT = "events/update";
+
 
 export const create = (payload) => {
   return {
     type: CREATE_EVENT,
+    payload,
+  };
+};
+
+export const update = (payload) => {
+  return {
+    type: UPDATE_EVENT,
     payload,
   };
 };
@@ -37,11 +46,12 @@ export const fetchEvents = () => async (dispatch) => {
   dispatch(loadEvents(events))
 }
 
-// export const fetchSingleEvent = () => async (dispatch) => {
-//   const res = await fetch('api/events');
-//   const events = await res.json()
-//   dispatch(loadEvents(events))
-// }
+export const fetchFromBrowse = () => async (dispatch) => {
+  const res = await fetch('/');
+  const events = await res.json()
+  dispatch(loadEvents(events))
+}
+
 
 export const createEvent = (payload) => async (dispatch) => {
   const res = await csrfFetch("/api/events", {
@@ -68,7 +78,9 @@ export const createEvent = (payload) => async (dispatch) => {
 // };
 
 
-const initialState = { events: [], categories: [] };
+
+
+const initialState = { events: [], categories: []};
 
 const eventsReducer = (state = initialState, action) => {
   let newState;

@@ -1,8 +1,9 @@
 .eventsPage {
-    position: fixed;
+    position: relative;
     left: 200px;
     width: 1100px;
 }
+
 
 .browseTitle {
     margin: 10px 10px;
@@ -15,6 +16,8 @@
 }
 
 .eventSquare {
+    text-decoration: none;
+    text-decoration-color: black;
     margin: 10px 10px;
     width: 250px;
     height: 300px;
@@ -27,5 +30,9 @@
 }
 
 .eventSquareInfo {
-    margin: 0px 5px;
+    margin: 0px 10px;
+}
+
+.date {
+    color: orange;
 }
