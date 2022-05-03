@@ -25,15 +25,18 @@ const validateEventCreation = [
 //CREATE A NEW EVENT -- POST /api/events 
 router.post('/', validateEventCreation, asyncHandler(async (req, res) => {
     const event = await Event.create(req.body)
-
-    // await setTokenCookie(res, event);
-
     return res.json({
         event
     });
 }))
 
 //GET ALL THE EVENTS -- GET /api/events
+router.get('/', asyncHandler(async (req, res) => {
+    const events = await Event.findAll()
+    res.json(events)
+}))
+
+//GET SINGLE EVENT --
 router.get('/', asyncHandler(async (req, res) => {
     const events = await Event.findAll()
     res.json(events)

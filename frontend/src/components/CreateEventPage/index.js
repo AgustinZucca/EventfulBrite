@@ -126,21 +126,26 @@ const CreateEventFormPage = () => {
         <div className="dateInfo">
           <h1>Date</h1>
           <p>
-            Help people in the area discover your event and let attendees know
-            where to show up.
+          Tell event-goers when your event starts so they can make plans to attend.
           </p>
         </div>
         <div className="formInput">
           <label className="eventcreatelabel">Date</label>
           <input
-            type="date"
+            type="datetime-local"
             onChange={(e) => setDate(e.target.value)}
             value={date}
             required
             className="dateInput"
           ></input>
         </div>
-        <div className="passInput formInput">
+        <div className="capacityInfo">
+          <h1>Capacity</h1>
+          <p>
+          How many tickets will be available for this event.
+          </p>
+        </div>
+        <div className="formInput">
           <label className="eventcreatelabel">Capacity</label>
           <input
             type="numeric"

@@ -37,6 +37,12 @@ export const fetchEvents = () => async (dispatch) => {
   dispatch(loadEvents(events))
 }
 
+// export const fetchSingleEvent = () => async (dispatch) => {
+//   const res = await fetch('api/events');
+//   const events = await res.json()
+//   dispatch(loadEvents(events))
+// }
+
 export const createEvent = (payload) => async (dispatch) => {
   const res = await csrfFetch("/api/events", {
     method: "POST",
@@ -62,19 +68,19 @@ export const createEvent = (payload) => async (dispatch) => {
 // };
 
 
-const initialState = { events: {}, categories: [] };
+const initialState = { events: [], categories: [] };
 
 const eventsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case LOAD_EVENTS:
-      newState = {...state, events: {...action.events}}
+      newState = {...state, events: action.events}
       return newState;
     case GET_CATEGORIES:
       newState = {...state, categories: action.categories}
       return newState;
     case CREATE_EVENT:
-      newState = { ...state, event: action.payload };
+      newState = { ...state, event: action.payload};
       return newState;
     default:
       return state;

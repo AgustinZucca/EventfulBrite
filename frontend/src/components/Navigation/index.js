@@ -2,7 +2,6 @@ import { NavLink, Route, Switch } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
-import CreateEventFormPage from "../CreateEventPage";
 import "./Navigation.css";
 
 const Navigation = () => {
@@ -41,6 +40,10 @@ const Navigation = () => {
         <div className='createEventButton'>
           <i class="fa-solid fa-plus"></i>
           <NavLink className='createEventLink' to='/events/new'>Create Event</NavLink>
+        </div>
+        <div className='browseEventsButton'>
+          <i class="fa-solid fa-list"></i>
+          <NavLink className='browseEventsLink' to='/events'>Browse Events</NavLink>
         </div>
         <ProfileButton user={sessionUser} />
       </div>
