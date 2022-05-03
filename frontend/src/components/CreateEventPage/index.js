@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import * as eventActions from "../../store/events";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import "./CreateEvent.css";
 
 const CreateEventFormPage = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const categories = useSelector((state) => state.events.categories);
   const [name, setName] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState();
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState(categories[0]);
+  const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
   const [capacity, setCapacity] = useState(0);
   const [errors, setErrors] = useState([]);
@@ -43,61 +44,78 @@ const CreateEventFormPage = () => {
       setDate("");
       setDescription("");
       setCapacity(0);
-      setCategory(categories[0]);
+      setCategory();
       setLocation("");
       setErrors([]);
     };
 
-    const event = await dispatch(eventActions.createEvent(newEvent));
+    const event = await dispatch(eventActions.createEvent(newEvent)).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      }
+    );
     if (event) return reset();
   };
 
   return (
     <div className="createEventPage">
       <form className="createEventForm" onSubmit={handleSubmit}>
-        <h1>Basic Info</h1>
+        <div className="basicInfo">
+          <h1>Basic Info</h1>
+          <p>
+            Name your event and tell event-goers why they should come. Add
+            details that highlight what makes it unique.
+          </p>
+        </div>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <div className="eventNameInput">
-          <label>Event Title</label>
+        <div className="eventNameInput formInput">
+          <label className="eventcreatelabel">Event Title</label>
           <input
             onChange={(e) => setName(e.target.value)}
             value={name}
             required
+            placeholder="Be descriptive and clear"
           ></input>
         </div>
-        <div className="eventDescriptionInput">
-          <label>Event description</label>
+        <div className="eventDescriptionInput formInput">
+          <label className="eventcreatelabel">Event description</label>
           <input
             onChange={(e) => setDescription(e.target.value)}
             value={description}
             required
+            placeholder="Tell people what your event is all about!"
           ></input>
         </div>
-        <div className="dateInput">
-          <label>Date</label>
-          <input
-            type="date"
-            onChange={(e) => setDate(e.target.value)}
-            value={date}
-            required
-          ></input>
-        </div>
-        <div className="categorySelection">
-          <label>Category</label>
-          <select 
-            onChange={e => setCategory(e.target.value)}
-            value={category}>
-            {categories.map(({id, name}) => (
-              <option key={id} value={id}>{name}</option>
+        <div className="categorySelection formInput">
+          <label className="eventcreatelabel">Category</label>
+          <select
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
+          >
+            <option selected hidden>
+              Category
+            </option>
+            {categories.map(({ id, name }) => (
+              <option key={id} value={id}>
+                {name}
+              </option>
             ))}
           </select>
         </div>
-        <div className="locationInput">
-          <label>Location</label>
+        <div className="locationInfo">
+          <h1>Location</h1>
+          <p>
+            Help people in the area discover your event and let attendees know
+            where to show up.
+          </p>
+        </div>
+        <div className="locationInput formInput">
+          <label className="eventcreatelabel">Location</label>
           <input
             type="address"
             onChange={(e) => setLocation(e.target.value)}
@@ -105,8 +123,25 @@ const CreateEventFormPage = () => {
             required
           ></input>
         </div>
-        <div className="passInput">
-          <label>Capacity</label>
+        <div className="dateInfo">
+          <h1>Date</h1>
+          <p>
+            Help people in the area discover your event and let attendees know
+            where to show up.
+          </p>
+        </div>
+        <div className="formInput">
+          <label className="eventcreatelabel">Date</label>
+          <input
+            type="date"
+            onChange={(e) => setDate(e.target.value)}
+            value={date}
+            required
+            className="dateInput"
+          ></input>
+        </div>
+        <div className="passInput formInput">
+          <label className="eventcreatelabel">Capacity</label>
           <input
             type="numeric"
             onChange={(e) => setCapacity(e.target.value)}

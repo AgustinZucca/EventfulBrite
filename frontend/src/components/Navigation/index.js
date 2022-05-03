@@ -37,7 +37,11 @@ const Navigation = () => {
     );
   } else {
     return (
-      <div>
+      <div className="navbar">
+        <div className='createEventButton'>
+          <i class="fa-solid fa-plus"></i>
+          <NavLink className='createEventLink' to='/events/new'>Create Event</NavLink>
+        </div>
         <ProfileButton user={sessionUser} />
       </div>
     );
