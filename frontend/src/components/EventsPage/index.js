@@ -30,14 +30,12 @@ const EventsPage = () => {
         <div className="eventsPage">
           <h2 className="browseTitle">Browse Events</h2>
           <div className="eventsDisplay">
-            {events.slice(0).reverse().map(({ id, name, date, location }) => (
+            {events.slice(0).reverse().map(({ id, name, date, location, img }) => (
               <div className={`eventSquare`}>
                 <img
                   style={{ width: 250 }}
                   onClick={handleClick}
-                  id={`${id}`}
-                  src="https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_1080,q_50,w_1920/v1/clients/houston/926c4535_ddcb_4960_98b3_e374a35ffb1f_ac366d4e-ec15-42bc-a22e-d40acdb95c73.jpg"
-                ></img>
+                  id={`${id}`} src={img}></img>
                 <div className="eventSquareInfo">
                   <h2 onClick={handleClick}>{name}</h2>
                   <h3 className="date">{date.slice(0, 10)}</h3>
