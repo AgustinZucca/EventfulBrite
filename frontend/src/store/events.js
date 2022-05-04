@@ -4,6 +4,7 @@ export const CREATE_EVENT = "events/createEvent";
 export const LOAD_EVENTS = "events/fetchEvents";
 export const GET_CATEGORIES = "categories/fetchCategories";
 export const UPDATE_EVENT = "events/updateEvent";
+export const REMOVE_EVENT = "events/removeEvent";
 
 
 export const create = (payload) => {
@@ -17,6 +18,13 @@ export const update = (payload) => {
   return {
     type: UPDATE_EVENT,
     payload,
+  };
+};
+
+export const remove = (id) => {
+  return {
+    type: REMOVE_EVENT,
+    id,
   };
 };
 
@@ -73,7 +81,7 @@ export const createEvent = (payload) => async (dispatch) => {
 };
 
 export const updateEvent = (payload) => async (dispatch) => {
-  const res = await fetch(`/api/events`, {
+  const res = await csrfFetch(`/api/events/:id/edit`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(payload)
@@ -81,21 +89,22 @@ export const updateEvent = (payload) => async (dispatch) => {
 
   if (res.ok) {
     const event = await res.json()
-    dispatch(create(payload))
+    dispatch(update(payload))
     return event;
   }
-
 }
 
-// export const deleteEvent = (id) => async (dispatch) => {
-//   const res = await csrfFetch("/api/events", {
-//     method: "DELETE",
-//   });
-//   if (res.ok) {
-//     dispatch(delet());
-//     return res;
-//   }
-// };
+
+export const removeEvent = (id) => async (dispatch) => {
+  const res = await csrfFetch("/api/events", {
+    method: "DELETE",
+    body: JSON.parse({eventId: id})
+  });
+  if (res.ok) {
+    dispatch(remove(id));
+    return res;
+  }
+};
 
 
 
@@ -108,8 +117,16 @@ const eventsReducer = (state = initialState, action) => {
     case CREATE_EVENT:
       newState = { ...state, event: action.payload};
       return newState;
+    case UPDATE_EVENT:
+      newState = { ...state};
+      newState.events[action.payload.id] = {...action.payload}
+      return newState;
     case LOAD_EVENTS:
       newState = {...state, events: action.events}
+      return newState;
+    case REMOVE_EVENT:
+      newState = {...state}
+      delete newState.events[action.id]
       return newState;
     case GET_CATEGORIES:
       newState = {...state, categories: action.categories}

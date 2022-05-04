@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as eventActions from "../../store/events";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import "./SingleEventPage.css";
 
 const SingleEventPage = () => {
@@ -13,17 +13,16 @@ const SingleEventPage = () => {
   const events = useSelector((state) => state.events.events);
   const singleEvent = events.find((event) => event.id === parseInt(eventId));
   const {date, name, id} = singleEvent
-  console.log(sessionUser)
-  
 
-  useEffect(() => {
-    dispatch(eventActions.fetchCategories());
-    dispatch(eventActions.fetchEvents());
-  }, [dispatch]);
-
-  const editBtnClick = (e) => {
+  const editBtnClick = (e,id) => {
     const editPath = `/events/${id}/edit`
     history.push(editPath)
+  }
+  
+  const removeBtnClick = (e, id) => {
+    dispatch(eventActions.removeEvent(id))
+    const path = `/events`
+    history.push(path)
   }
   
   
@@ -43,8 +42,8 @@ const SingleEventPage = () => {
             </div>
           </div>
           <div className="userBtns">
-            <button className="editBtn" onClick={editBtnClick} >Edit Event</button>
-            <button className="deleteBtn" >Delete Event</button>
+            <button className="editBtn" onClick = {(e) => editBtnClick(e, id)} >Edit Event</button>
+            <button className="deleteBtn" onClick = {(e) => removeBtnClick(e, id)}>Delete Event</button>
           </div>
           <div className="lowerPart">
   

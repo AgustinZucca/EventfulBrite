@@ -22,6 +22,12 @@ const validateEventCreation = [
     handleValidationErrors
 ];
 
+//GET ALL THE EVENTS -- GET /api/events
+router.get('/', asyncHandler(async (req, res) => {
+    const events = await Event.findAll()
+    res.json(events)
+}));
+
 //CREATE A NEW EVENT -- POST /api/events 
 router.post('/new', validateEventCreation, requireAuth, asyncHandler(async (req, res) => {
     const event = await Event.create(req.body)
@@ -30,18 +36,23 @@ router.post('/new', validateEventCreation, requireAuth, asyncHandler(async (req,
     });
 }))
 
-router.put('/edit', validateEventCreation, asyncHandler(async (req, res) => {
+router.post('/:id/edit', validateEventCreation, requireAuth, asyncHandler(async (req, res) => {
+    console.log(req.body)
     const event = await Event.update(req.body)
     return res.json({
         event
     });
 }))
 
-//GET ALL THE EVENTS -- GET /api/events
-router.get('/', asyncHandler(async (req, res) => {
-    const events = await Event.findAll()
-    res.json(events)
-}));
+router.delete('/', asyncHandler(async (req, res) => {
+    console.log(req.body)
+    const event = await Event.findByPk(req.body)
+    const ml = await Event.remove(req.body)
+    return res.json({
+        event
+    });
+}))
+
 
 
 

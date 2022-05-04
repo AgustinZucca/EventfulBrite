@@ -11,22 +11,19 @@ const EditEventPage = () => {
   const categories = useSelector((state) => state.events.categories);
   const events = useSelector((state) => state.events.events);
   const singleEvent = events.find((event) => event.id === parseInt(eventId));
-  console.log(singleEvent);
+  const singleCategory = categories.find(category => category.id === singleEvent.categoryId)
   const [name, setName] = useState(singleEvent.name);
-  const [date, setDate] = useState();
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [location, setLocation] = useState("");
-  const [capacity, setCapacity] = useState(0);
+  const [date, setDate] = useState(singleEvent.date);
+  const [description, setDescription] = useState(singleEvent.description);
+  const [category, setCategory] = useState();
+  const [location, setLocation] = useState(singleEvent.location);
+  const [capacity, setCapacity] = useState(singleEvent.capacity);
   const [errors, setErrors] = useState([]);
 
-  useEffect(() => {
-    dispatch(eventActions.fetchCategories());
-    dispatch(eventActions.fetchEvents());
-  }, [dispatch]);
-
-  if (sessionUser.id !== singleEvent.hostId) {
-  }
+  // useEffect(() => {
+  //   dispatch(eventActions.fetchCategories())
+  //   dispatch(eventActions.fetchEvents())
+  // }, [dispatch])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,16 +39,6 @@ const EditEventPage = () => {
       capacity: capacity,
     };
 
-    const reset = () => {
-      setName("");
-      setDate("");
-      setDescription("");
-      setCapacity(0);
-      setCategory();
-      setLocation("");
-      setErrors([]);
-    };
-
     const event = await dispatch(eventActions.updateEvent(newEvent)).catch(
       async (res) => {
         const data = await res.json();
@@ -63,6 +50,7 @@ const EditEventPage = () => {
       history.push("/events");
       return;
     }
+
   };
 
   return (
@@ -104,8 +92,8 @@ const EditEventPage = () => {
             onChange={(e) => setCategory(e.target.value)}
             value={category}
           >
-            <option defaultValue hidden>
-              Category
+            <option defaultValue >
+              {singleCategory.name}
             </option>
             {categories.map(({ id, name }) => (
               <option key={id} value={id}>
