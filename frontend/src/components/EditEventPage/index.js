@@ -11,25 +11,26 @@ const EditEventPage = () => {
   const categories = useSelector((state) => state.events.categories);
   const events = useSelector((state) => state.events.events);
   const singleEvent = events.find((event) => event.id === parseInt(eventId));
-  const singleCategory = categories.find(category => category.id === singleEvent.categoryId)
-  const [name, setName] = useState(singleEvent.name);
-  const [date, setDate] = useState(singleEvent.date);
-  const [description, setDescription] = useState(singleEvent.description);
-  const [category, setCategory] = useState();
-  const [location, setLocation] = useState(singleEvent.location);
-  const [capacity, setCapacity] = useState(singleEvent.capacity);
+  const singleCategory = categories.find(category => category?.id === singleEvent?.categoryId)
+  const [name, setName] = useState(singleEvent?.name);
+  const [date, setDate] = useState(singleEvent?.date);
+  const [description, setDescription] = useState(singleEvent?.description);
+  const [category, setCategory] = useState(singleCategory?.id);
+  const [location, setLocation] = useState(singleEvent?.location);
+  const [capacity, setCapacity] = useState(singleEvent?.capacity);
+  const [isLoaded, setIsLoaded] = useState(false)
   const [errors, setErrors] = useState([]);
 
-  // useEffect(() => {
-  //   dispatch(eventActions.fetchCategories())
-  //   dispatch(eventActions.fetchEvents())
-  // }, [dispatch])
+  useEffect(() => {
+    dispatch(eventActions.fetchCategories()).then(() => dispatch(eventActions.fetchEvents())).then(() => setIsLoaded(true))
+  }, [dispatch])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
 
     const newEvent = {
+      ...singleEvent,
       hostId: sessionUser.id,
       categoryId: category,
       name: name,
@@ -52,7 +53,7 @@ const EditEventPage = () => {
     }
 
   };
-
+  if (isLoaded) {
   return (
     <div className="createEventPage">
       <form className="createEventForm" onSubmit={handleSubmit}>
@@ -92,7 +93,7 @@ const EditEventPage = () => {
             onChange={(e) => setCategory(e.target.value)}
             value={category}
           >
-            <option defaultValue >
+            <option defaultValue hidden>
               {singleCategory.name}
             </option>
             {categories.map(({ id, name }) => (
@@ -151,7 +152,7 @@ const EditEventPage = () => {
         <button type="submit">Create Event</button>
       </form>
     </div>
-  );
+  );} else return null
 };
 
 export default EditEventPage;

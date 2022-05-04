@@ -12,20 +12,19 @@ const SingleEventPage = () => {
   const categories = useSelector((state) => state.events.categories);
   const events = useSelector((state) => state.events.events);
   const singleEvent = events.find((event) => event.id === parseInt(eventId));
-  const {date, name, id} = singleEvent
+  const { date, name, id } = singleEvent;
 
-  const editBtnClick = (e,id) => {
-    const editPath = `/events/${id}/edit`
-    history.push(editPath)
-  }
-  
+  const editBtnClick = (e, id) => {
+    const editPath = `/events/${id}/edit`;
+    history.push(editPath);
+  };
+
   const removeBtnClick = (e, id) => {
-    dispatch(eventActions.removeEvent(id))
-    const path = `/events`
-    history.push(path)
-  }
-  
-  
+    dispatch(eventActions.removeEvent(id));
+    const path = `/events`;
+    return history.push(path);
+  };
+
   if (sessionUser.id === singleEvent.hostId) {
     return (
       <div className="singleEventPage">
@@ -42,12 +41,17 @@ const SingleEventPage = () => {
             </div>
           </div>
           <div className="userBtns">
-            <button className="editBtn" onClick = {(e) => editBtnClick(e, id)} >Edit Event</button>
-            <button className="deleteBtn" onClick = {(e) => removeBtnClick(e, id)}>Delete Event</button>
+            <button className="editBtn" onClick={(e) => editBtnClick(e, id)}>
+              Edit Event
+            </button>
+            <button
+              className="deleteBtn"
+              onClick={(e) => removeBtnClick(e, id)}
+            >
+              Delete Event
+            </button>
           </div>
-          <div className="lowerPart">
-  
-          </div>
+          <div className="lowerPart"></div>
         </div>
       </div>
     );
@@ -69,14 +73,11 @@ const SingleEventPage = () => {
           <div className="ticketsDiv">
             <button className="ticketsBtn">Tickets</button>
           </div>
-          <div className="lowerPart">
-  
-          </div>
+          <div className="lowerPart"></div>
         </div>
       </div>
     );
   }
-
 };
 
 export default SingleEventPage;
