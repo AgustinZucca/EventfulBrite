@@ -74,7 +74,7 @@ const SignupFormPage = () => {
             required
           ></input>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" className="registerBtn">Register</button>
       </form>
     </div>
   );

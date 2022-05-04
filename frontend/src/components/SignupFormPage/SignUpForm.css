@@ -73,7 +73,7 @@ input {
     cursor: text;
 }
 
-button {
+.registerBtn {
     background-color: rgb(198, 58, 27);
     transition: .2s;
     color: white;
@@ -82,7 +82,7 @@ button {
     border-radius: 5px;
 }
 
-button:hover {
+.registerBtn:hover {
     background-color: rgb(198, 58, 27, .925);
     cursor: pointer;
 }
