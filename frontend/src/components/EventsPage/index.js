@@ -30,7 +30,7 @@ const EventsPage = () => {
         <div className="eventsPage">
           <h2 className="browseTitle">Browse Events</h2>
           <div className="eventsDisplay">
-            {events.map(({ id, name, date, location }) => (
+            {events.slice(0).reverse().map(({ id, name, date, location }) => (
               <div className={`eventSquare`}>
                 <img
                   style={{ width: 250 }}
