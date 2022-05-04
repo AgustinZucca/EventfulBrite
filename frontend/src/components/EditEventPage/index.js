@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import * as eventActions from "../../store/events";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
-import "./CreateEvent.css";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 
-const CreateEventFormPage = () => {
-  const history = useHistory()
+const EditEventPage = () => {
+  const eventId = useParams().id;
+  const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const categories = useSelector((state) => state.events.categories);
-  const [name, setName] = useState("");
+  const events = useSelector((state) => state.events.events);
+  const singleEvent = events.find((event) => event.id === parseInt(eventId));
+  console.log(singleEvent);
+  const [name, setName] = useState(singleEvent.name);
   const [date, setDate] = useState();
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -19,11 +22,10 @@ const CreateEventFormPage = () => {
 
   useEffect(() => {
     dispatch(eventActions.fetchCategories());
-  }, []);
+    dispatch(eventActions.fetchEvents());
+  }, [dispatch]);
 
-  if (!sessionUser) {
-    alert("Please Login to create an event");
-    return <Redirect to="/login" />;
+  if (sessionUser.id !== singleEvent.hostId) {
   }
 
   const handleSubmit = async (e) => {
@@ -40,7 +42,17 @@ const CreateEventFormPage = () => {
       capacity: capacity,
     };
 
-    const event = await dispatch(eventActions.createEvent(newEvent)).catch(
+    const reset = () => {
+      setName("");
+      setDate("");
+      setDescription("");
+      setCapacity(0);
+      setCategory();
+      setLocation("");
+      setErrors([]);
+    };
+
+    const event = await dispatch(eventActions.updateEvent(newEvent)).catch(
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
@@ -48,7 +60,7 @@ const CreateEventFormPage = () => {
     );
 
     if (event) {
-      history.push('/events')
+      history.push("/events");
       return;
     }
   };
@@ -121,7 +133,8 @@ const CreateEventFormPage = () => {
         <div className="dateInfo">
           <h1>Date</h1>
           <p>
-          Tell event-goers when your event starts so they can make plans to attend.
+            Tell event-goers when your event starts so they can make plans to
+            attend.
           </p>
         </div>
         <div className="formInput">
@@ -136,9 +149,7 @@ const CreateEventFormPage = () => {
         </div>
         <div className="capacityInfo">
           <h1>Capacity</h1>
-          <p>
-          How many tickets will be available for this event.
-          </p>
+          <p>How many tickets will be available for this event.</p>
         </div>
         <div className="formInput">
           <label className="eventcreatelabel">Capacity</label>
@@ -155,4 +166,4 @@ const CreateEventFormPage = () => {
   );
 };
 
-export default CreateEventFormPage;
+export default EditEventPage;

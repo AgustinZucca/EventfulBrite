@@ -9,6 +9,7 @@ import * as sessionActions from "./store/session";
 import * as eventActions from "./store/events"
 import EventsPage from "./components/EventsPage";
 import SingleEventPage from "./components/SingleEventPage";
+import EditEventPage from './components/EditEventPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -23,21 +24,26 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/"></Route>
+          <Route exact path="/">
+            {/* <SplashPage /> */}
+          </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/events/new">
+          <Route exact path="/events/new">
             <CreateEventFormPage />
           </Route>
           <Route exact path="/events">
             <EventsPage />
           </Route>
-          <Route path="/events/:id">
+          <Route exact path="/events/:id">
             <SingleEventPage />
+          </Route>
+          <Route exact path="/events/:id/edit">
+            <EditEventPage />
           </Route>
         </Switch>
       )}

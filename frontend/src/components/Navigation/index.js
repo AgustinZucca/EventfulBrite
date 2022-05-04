@@ -10,10 +10,6 @@ const Navigation = () => {
   const credential = "demouser";
   const password = "password";
 
-  const handleClick = () => {
-    return dispatch(sessionActions.logoutUser());
-  };
-
   const demoLogin = () => {
     return dispatch(sessionActions.loginUser({ credential, password }));
   };
