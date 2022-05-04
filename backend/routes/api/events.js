@@ -10,6 +10,7 @@ const router = express.Router();
 const validateEventCreation = [
     check('name')
         .exists({checkFalsy: true})
+        .isLength({max: 255})
         .withMessage('Name of event must not be over 255 characters'),
     check('description')
         .exists({checkFalsy: true})
@@ -22,6 +23,12 @@ const validateEventCreation = [
     handleValidationErrors
 ];
 
+//GET ALL THE EVENTS -- GET /api/events
+router.get('/', asyncHandler(async (req, res) => {
+    const events = await Event.findAll()
+    res.json(events)
+}));
+
 //CREATE A NEW EVENT -- POST /api/events 
 router.post('/new', validateEventCreation, requireAuth, asyncHandler(async (req, res) => {
     const event = await Event.create(req.body)
@@ -30,18 +37,24 @@ router.post('/new', validateEventCreation, requireAuth, asyncHandler(async (req,
     });
 }))
 
-router.put('/edit', validateEventCreation, asyncHandler(async (req, res) => {
-    const event = await Event.update(req.body)
-    return res.json({
-        event
-    });
+router.put('/:id/edit', validateEventCreation, requireAuth, asyncHandler(async (req, res) => {
+    const { id, hostId, name, categoryId, description, date, location} = req.body
+    console.log(req.body)
+    const event = await Event.findByPk(id)
+    event.name = name
+    event.description = description
+    event.date = date
+    event.location = location
+    event.categoryId = categoryId
+    await event.save()
+    
+    }));
+
+router.delete('/:id', asyncHandler(async (req, res) => {
+    const event = await Event.findByPk(req.params.id)
+    event.destroy()
 }))
 
-//GET ALL THE EVENTS -- GET /api/events
-router.get('/', asyncHandler(async (req, res) => {
-    const events = await Event.findAll()
-    res.json(events)
-}));
 
 
 
