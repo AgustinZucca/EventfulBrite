@@ -25,6 +25,10 @@ const SingleEventPage = () => {
     return history.push(path);
   };
 
+  const ticketClick = (e, id) => {
+    
+  }
+
   if (sessionUser.id === singleEvent.hostId) {
     return (
       <div className="singleEventPage">
@@ -71,7 +75,7 @@ const SingleEventPage = () => {
             </div>
           </div>
           <div className="ticketsDiv">
-            <button className="ticketsBtn">Tickets</button>
+            <button className="ticketsBtn" onClick={(e) => ticketClick(e, sessionUser.id)}>Tickets</button>
           </div>
           <div className="lowerPart"></div>
         </div>
