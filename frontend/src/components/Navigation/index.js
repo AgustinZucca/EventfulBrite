@@ -19,15 +19,21 @@ const Navigation = () => {
       <>
         <div className="navbar">
           <div className="createEventButton">
-            <NavLink className="createEventLink" to="/events/new">
-              <i class="fa-solid fa-plus"></i>
+            <NavLink className="createEventLink" to="/login">
+              <i class="fa-solid fa-address-card"></i>
             </NavLink>
-            <NavLink className="createEventLink" to="/events/new">
+            <NavLink className="createEventLink" to="/login">
               Login
             </NavLink>
           </div>
-
-          <NavLink to="/signup">Signup</NavLink>
+          <div className="createEventButton">
+            <NavLink className="createEventLink" to="/signup">
+              <i class="fa-solid fa-user-plus"></i>
+            </NavLink>
+            <NavLink className="createEventLink" to="/signup">
+              Register
+            </NavLink>
+          </div>
           <div className="demoButton" onClick={demoLogin} to="/signup">
             Demo User
           </div>
