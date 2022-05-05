@@ -37,9 +37,9 @@ const EventsPage = () => {
                   onClick={handleClick}
                   id={`${id}`} src={img}></img>
                 <div className="eventSquareInfo">
-                  <h2 onClick={handleClick}>{name}</h2>
-                  <h3 className="date">{date.slice(0, 10)}</h3>
-                  <p>{location}</p>
+                  <h3 onClick={handleClick}>{name}</h3>
+                  <p className="date">{date.slice(0, 10)}</p>
+                  <p>{`${location.slice(0,40)}...`}</p>
                 </div>
               </div>
             ))}
