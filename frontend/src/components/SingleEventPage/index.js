@@ -50,7 +50,7 @@ const SingleEventPage = () => {
       for (let i = 0; i < tickets; i++) {
         dispatch(ticketActions.createTicket({ userId, eventId }));
       }
-      return history.push(`/${sessionUser.id}/tickets`);
+      return history.push(`/tickets/${sessionUser.id}`);
     }
   };
 

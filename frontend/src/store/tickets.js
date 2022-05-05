@@ -10,6 +10,13 @@ export const create = (payload) => {
     }
 }
 
+export const load = (tickets) => {
+    return {
+        type: LOAD_TICKETS,
+        tickets
+    }
+}
+
 export const createTicket = (payload) => async (dispatch) => {
     const res = await csrfFetch('/api/tickets/new', {
         method: 'POST',
@@ -26,6 +33,15 @@ export const createTicket = (payload) => async (dispatch) => {
     }
 }
 
+export const loadTickets = (userId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/tickets/${userId}`)
+
+    if (res.ok) {
+        const tickets = await res.json();
+        dispatch(load(tickets))
+    }
+}
+
 
 const initialState = {tickets: []}
 
@@ -36,7 +52,8 @@ const ticketsReducer = (state = initialState, action) => {
             newState = {...state, tickets: action.payload};
             return newState;
         case LOAD_TICKETS:
-            newState = {...state, tickets: action.payload}
+            newState = {...state, tickets: action.tickets}
+            return newState;
         default:
             return state
     }
