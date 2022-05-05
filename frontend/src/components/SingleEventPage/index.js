@@ -131,9 +131,17 @@ const SingleEventPage = () => {
             </button>
           </div>
           <div className="lowerPart">
-            <div className="lowerPartRight">
+            <div className="lowerPartLeft">
               <div className="eventDescription">
                 <p>{description}</p>
+              </div>
+            </div>
+            <div className="lowerPartRight">
+              <div className="eventInfo">
+                <h3>Date and time</h3>
+                <p>{date.slice(0,10)} {date.slice(11, 16)}</p>
+                <h3>Location</h3>
+                <p>{location}</p>
               </div>
             </div>
           </div>
