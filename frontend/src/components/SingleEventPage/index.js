@@ -12,9 +12,9 @@ const SingleEventPage = () => {
   const categories = useSelector((state) => state.events.categories);
   const events = useSelector((state) => state.events.events);
   const singleEvent = events.find((event) => event.id === parseInt(eventId));
-  const { date, name, id, img, location } = singleEvent;
+  const { date, name, id, img, location, capacity } = singleEvent;
   const [ticketModal, setTicketModal] = useState(false);
-  const [tickets, setTickets] = useState(0)
+  const [tickets, setTickets] = useState(0);
 
   const editBtnClick = (e, id) => {
     const editPath = `/events/${id}/edit`;
@@ -32,8 +32,8 @@ const SingleEventPage = () => {
   };
 
   const checkout = (e) => {
-
-  }
+    
+  };
 
   if (sessionUser?.id === singleEvent.hostId) {
     return (
@@ -76,39 +76,42 @@ const SingleEventPage = () => {
         {ticketModal && (
           <div className="ticketModal">
             <div className="leftArea">
-              <div className='topLeft'>
+              <div className="topLeft">
                 <h2>{name}</h2>
                 <p>
-                  {date.slice(0, 10)} {date.slice(11, 16)}
+                  {date.slice(0, 10)} - {date.slice(11, 16)}
                 </p>
               </div>
-              <div className='bottLeft'>
-                <form onSubmit={checkout} className='ticketForm'>
-                  <label>General Admission</label>
-                  <select
-                    onChange={(e) => setTickets(e.target.value)}
-                    value={tickets}
-                  >
-                    <option value={0}>0</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                  </select>
-                  <div className='checkoutBtn'>
+              <div className="bottLeft">
+                <form onSubmit={checkout} className="ticketForm">
+                  <div className='ticketSelection'>
+                    <label>General Admission</label>
+                    <select
+                      onChange={(e) => setTickets(e.target.value)}
+                      value={tickets}
+                    >
+                      <option>0</option>
+                      <option value={1}>1</option>
+                      <option value={2}>2</option>
+                      <option value={3}>3</option>
+                      <option value={4}>4</option>
+                      <option value={5}>5</option>
+                    </select>
+                  </div>
+                  <div className="checkoutBtn">
                     <button>Checkout</button>
                   </div>
                 </form>
               </div>
             </div>
-            <div className='rightArea'>
-              <div className='topRight'>
-                <img className='ticketModalImg' src={img}></img>
+            <div className="rightArea">
+              <div className="topRight">
+                <img className="ticketModalImg" src={img}></img>
               </div>
-              <div className='bottRight'>
-                <p>{name}</p>
+              <div className="bottRight">
+                <h2>{name}</h2>
                 <p>{location}</p>
+                <p>Capacity: {capacity}</p>
               </div>
             </div>
           </div>
