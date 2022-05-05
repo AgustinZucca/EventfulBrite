@@ -52,7 +52,8 @@ router.put('/:id/edit', validateEventCreation, requireAuth, asyncHandler(async (
 
 router.delete('/:id', asyncHandler(async (req, res) => {
     const event = await Event.findByPk(req.params.id)
-    event.destroy()
+    await event.destroy()
+    return;
 }))
 
 

@@ -17,16 +17,26 @@ const Navigation = () => {
   if (!sessionUser) {
     return (
       <>
-        <ul>
-          <li>
-            <NavLink to="/login">Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/signup">Signup</NavLink>
-          </li>
-        </ul>
-        <div className="demoButton" onClick={demoLogin} to="/signup">
-          Demo User
+        <div className="navbar">
+          <div className="createEventButton">
+            <NavLink className="createEventLink" to="/login">
+              <i class="fa-solid fa-address-card"></i>
+            </NavLink>
+            <NavLink className="createEventLink" to="/login">
+              Login
+            </NavLink>
+          </div>
+          <div className="createEventButton">
+            <NavLink className="createEventLink" to="/signup">
+              <i class="fa-solid fa-user-plus"></i>
+            </NavLink>
+            <NavLink className="createEventLink" to="/signup">
+              Register
+            </NavLink>
+          </div>
+          <div className="demoButton" onClick={demoLogin} to="/signup">
+            Demo User
+          </div>
         </div>
       </>
     );

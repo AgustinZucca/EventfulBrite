@@ -12,6 +12,7 @@ const CreateEventFormPage = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState();
   const [description, setDescription] = useState("");
+  const [img, setImg] = useState("");
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
   const [capacity, setCapacity] = useState(0);
@@ -36,6 +37,7 @@ const CreateEventFormPage = () => {
       name: name,
       date: date,
       description: description,
+      img: img,
       location: location,
       capacity: capacity,
     };
@@ -101,6 +103,15 @@ const CreateEventFormPage = () => {
               </option>
             ))}
           </select>
+        </div>
+        <div className="eventDescriptionInput formInput">
+          <label className="eventcreatelabel">Event Image</label>
+          <input
+            onChange={(e) => setImg(e.target.value)}
+            value={img}
+            required
+            placeholder="Enter your event image url here"
+          ></input>
         </div>
         <div className="locationInfo">
           <h1>Location</h1>
