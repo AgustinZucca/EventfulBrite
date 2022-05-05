@@ -39,7 +39,7 @@ function App() {
           <Route exact path="/events/:id">
             <SingleEventPage />
           </Route>
-          <Route exact path={["/events", "/"]}>
+          <Route exact path={["/events", "/", "/event"]}>
             <EventsPage />
           </Route>
         </Switch>
