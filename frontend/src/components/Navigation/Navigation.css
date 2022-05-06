@@ -81,7 +81,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.476);
     padding: 10px;
 }
 

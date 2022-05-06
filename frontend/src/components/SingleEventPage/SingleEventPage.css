@@ -1,205 +1,207 @@
 .singleEventPage {
-    position: absolute;
-    width: 100%;
-    margin-top: 20px;
-    border: 0;
-    padding: 0;
+  position: absolute;
+  width: 100%;
+  margin-top: 20px;
+  border: 0;
+  padding: 0;
 }
 
 .singleEventBkg {
-    width: 100vw;
-    height: 600px;
-    filter: blur(20px);
+  width: 100vw;
+  height: 600px;
+  filter: blur(20px);
 }
 
 .event {
-    margin: 0 auto;
-    position: absolute;
-    left: 20%;
-    top: 10%;
-    border-radius: 5px;
-    width: 900px;
-    height: fit-content;
+  margin: 0 auto;
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  border-radius: 5px;
+  width: 900px;
+  height: fit-content;
 }
 .upperPart {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .upperPart > img {
-    width: 60%;
+  width: 60%;
 }
 
 .ticketsDiv {
-    display: flex;
-    justify-content: end;
-    background-color: white;
-    padding: 10px;
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: end;
+  background-color: white;
+  padding: 10px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 
 .ticketsBtn {
-    background-color: green;
-    color: white;
-    border: 0;
-    border-radius: 5px;
-    padding: 20px 150px;
+  background-color: green;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  padding: 20px 150px;
 }
 
 .urPart {
-    color: black;
-    width: 100%;
-    height: 100;
-    background-color: rgb(226, 226, 226);
-    padding: 10px;
+  color: black;
+  width: 100%;
+  height: 100;
+  background-color: rgb(226, 226, 226);
+  padding: 10px;
 }
 
 .userBtns {
-    display: flex;
-    justify-content: end;
-    background-color: white;
-    padding: 10px;
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: end;
+  background-color: white;
+  padding: 10px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 
 .editBtn {
-    background-color: orange;
-    color: white;
-    border: 0;
-    border-radius: 5px;
-    padding: 20px 50px;
-    margin-right: 10px;
+  background-color: orange;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  padding: 20px 50px;
+  margin-right: 10px;
 }
 
 .deleteBtn {
-    background-color: rgb(255, 63, 63);
-    color: white;
-    border: 0;
-    border-radius: 5px;
-    padding: 20px 50px;
+  background-color: rgb(255, 63, 63);
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  padding: 20px 50px;
 }
 
 .ticketModal {
-    position: absolute;
-    z-index: 1000;
-    top: 10vh;
-    left: 20%;
-    width: 60%;
-    height: 600px;
-    background-color: white;
-    display: flex;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px black;
+  position: absolute;
+  z-index: 1000;
+  top: 10vh;
+  left: 20%;
+  width: 60%;
+  height: 600px;
+  background-color: white;
+  display: flex;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px black;
 }
-
 
 .leftArea {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    border-right: .1px solid grey;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  border-right: 0.1px solid grey;
 }
 .topLeft {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: .1px solid grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 0.1px solid grey;
 }
 
 .rightArea {
-    width: 30%;
+  width: 30%;
 }
 
-
-
 .ticketModalImg {
-    width: 100%;
-    height: 117.83px;
-    border-radius: 0px 5px 0px 0px;
+  width: 100%;
+  height: 117.83px;
+  border-radius: 0px 5px 0px 0px;
 }
 
 .bottRight {
-    margin: 0px 15px;
+  margin: 0px 15px;
 }
 
-
 .bottLeft {
-    height: 100%;
+  height: 100%;
 }
 
 .ticketForm {
-   height:100%; 
-   margin: 20px 24px;
+  height: 100%;
+  margin: 20px 24px;
 }
 
 .ticketSelection {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 .ticketSelection > select {
-    padding: 5px 24px;
+  padding: 5px 24px;
 }
 
 .ticketSelection > label {
-    padding: 12px 14px;
-    font-size: 20px;
+  padding: 12px 14px;
+  font-size: 20px;
 }
 
 .checkoutBtn {
-    margin-top: 300px;
-    border-top: 1px solid grey;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: end;
-    padding: 10px;
+  margin-top: 300px;
+  border-top: 1px solid grey;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  padding: 10px;
 }
 
 .checkoutBtn > button {
-    padding: 20px 20px;
-    background-color: rgb(255, 98, 0);
-    color: white;
-    border: 0;
-    border-radius: 3px;
-    transition: .5s;
+  padding: 20px 20px;
+  background-color: rgb(255, 98, 0);
+  color: white;
+  border: 0;
+  border-radius: 3px;
+  transition: 0.5s;
 }
 
 .checkoutBtn > button:hover {
-    background-color: rgba(255, 102, 0, 0.858);
-    box-shadow: 0px 0px 2px black;
+  background-color: rgba(255, 102, 0, 0.858);
+  box-shadow: 0px 0px 2px black;
 }
 
 .lowerPart {
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    background-color: white;
-    margin: 0;
-    width:100%;
-    height: fit-content;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  background-color: white;
+  margin: 0;
+  width: 100%;
+  height: fit-content;
 }
 
 .lowerPartLeft {
-    width: 60%;
+  width: 60%;
 }
 
 .lowerPartRight {
-    margin: 0 15px;
-    width: 15%;
+  margin: 0 15px;
+  width: 15%;
 }
 
-.eventDescription > p {
-    margin: 0;
-    padding: 10px;
+.eventDescription {
+  width: 100%;
 }
 
 .closeTicketModal {
-    position: absolute;
-    right: 1%;
-    background-color: rgba(255, 255, 255, 0.878);
-    padding: 5px 10px;
-    border-radius: 50px;
+  position: absolute;
+  right: 1%;
+  background-color: rgba(255, 255, 255, 0.878);
+  padding: 5px 10px;
+  border-radius: 50px;
 }
+
+.eventDescription > p {
+  margin: 0;
+  padding: 10px;
+  word-wrap: break-word;
+}
+

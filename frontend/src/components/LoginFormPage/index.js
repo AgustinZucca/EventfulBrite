@@ -17,13 +17,8 @@ const LoginFormPage = () => {
 
   if (sessionUser) return history.push("/events");
 
-  const demoLogin = () => {
-    // return dispatch(sessionActions.loginUser({ demoCredential, demoPassword })).catch(
-    //   async (res) => {
-    //     const data = await res.json();
-    //     if (data && data.errors) setErrors(data.errors);
-    //   }
-    // );
+  const demoLogin = (e) => {
+    return dispatch(sessionActions.loginUser({ demoCredential, demoPassword }));
   };
 
   const handleSubmit = async (e) => {
@@ -72,9 +67,6 @@ const LoginFormPage = () => {
             Login
           </button>
         </form>
-        <div className="demoBtn">
-          <button onClick={demoLogin}>Demo User</button>
-        </div>
 
         <button className="registerBtn" onClick={registerFunc}>
           Register User
@@ -82,7 +74,7 @@ const LoginFormPage = () => {
       </div>
       <img
         className="loginImg"
-        src="https://mariposafolk.com/wp-content/uploads/2020/03/2431-MFF_WebBanner_2.2.1FestivalAtAGlance-aspect-ratio-5-6.jpg"
+        src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?cs=srgb&dl=pexels-wendy-wei-1190297.jpg&fm=jpg"
       ></img>
     </div>
   );

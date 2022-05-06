@@ -17,6 +17,7 @@ export const logout = () => {
 };
 
 export const loginUser = (payload) => async (dispatch) => {
+  console.log(payload)
   const res = await csrfFetch("/api/session", {
     method: "POST",
     headers: {

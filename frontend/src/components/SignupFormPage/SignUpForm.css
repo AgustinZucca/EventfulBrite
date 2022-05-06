@@ -1,13 +1,25 @@
 .signupPage {
-    width: 50%;
+    width: 100vw;
+    height: 100vh;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: row;
 }
 
 .signupForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: 50%;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+}
+
+.signupForm > h1 {
+    color: rgb(32, 7, 59);
+    font-size: 60px;
+    margin: 0;
 }
 
 .usernameInput {
@@ -73,17 +85,18 @@ input {
     cursor: text;
 }
 
-.registerBtn {
+.loginBtn {
     background-color: rgb(198, 58, 27);
     transition: .2s;
     color: white;
-    padding: 15px 100px;
+    padding: 15px 120px;
     border: 0px;
     border-radius: 5px;
     font-size: 15px;
+    margin-top: 10px;
 }
 
-.registerBtn:hover {
+.loginBtn:hover {
     background-color: rgb(198, 58, 27, .925);
     cursor: pointer;
 }

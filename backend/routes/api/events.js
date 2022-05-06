@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { setTokenCookie, requireAuth } = require('../../utils/auth.js')
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation.js')
-const { Event } = require('../../db/models')
+const { Event, Ticket } = require('../../db/models')
 
 const router = express.Router();
 
@@ -47,13 +47,21 @@ router.put('/:id/edit', validateEventCreation, requireAuth, asyncHandler(async (
     event.location = location
     event.categoryId = categoryId
     await event.save()
-    
+    return res.json(event)
     }));
 
 router.delete('/:id', asyncHandler(async (req, res) => {
     const event = await Event.findByPk(req.params.id)
+    const tickets = await Ticket.findAll({
+        where: {
+            eventId: req.params.id
+        }
+    })
+    tickets.map(async (ticket) => {
+        await ticket.destroy()
+    })
     await event.destroy()
-    return;
+    return res.json(req.params.id);
 }))
 
 
