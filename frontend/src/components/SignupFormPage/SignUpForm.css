@@ -77,9 +77,10 @@ input {
     background-color: rgb(198, 58, 27);
     transition: .2s;
     color: white;
-    padding: 10px 60px;
+    padding: 15px 100px;
     border: 0px;
     border-radius: 5px;
+    font-size: 15px;
 }
 
 .registerBtn:hover {

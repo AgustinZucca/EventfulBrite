@@ -1,60 +1,89 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import "./LoginForm.css";
 
 const LoginFormPage = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/events" />;
+  const demoCredential = "demouser";
+  const demoPassword = "password";
+
+  if (sessionUser) return history.push("/events");
+
+  const demoLogin = () => {
+    // return dispatch(sessionActions.loginUser({ demoCredential, demoPassword })).catch(
+    //   async (res) => {
+    //     const data = await res.json();
+    //     if (data && data.errors) setErrors(data.errors);
+    //   }
+    // );
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
 
-    return dispatch(sessionActions.loginUser({ credential, password })).catch(
-      async (res) => {
+    return dispatch(sessionActions.loginUser({ credential, password }))
+      .catch(async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      }
-    );
+        if (data && data.message) setErrors(data.message);
+      })
   };
 
-  console.log(errors)
+  const registerFunc = () => {
+    history.push("/signup");
+  };
 
   return (
     <div className="loginPage">
-      <form className="loginForm" onSubmit={handleSubmit}>
-        <h1>Log in</h1>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <div className="credentialInput">
-          <label>Username or Email</label>
-          <input
-            onChange={(e) => setCredential(e.target.value)}
-            value={credential}
-            required
-          ></input>
+      <div className="loginForm">
+        <form className="loginForm" onSubmit={handleSubmit}>
+          <h1>Log in</h1>
+          <ul className="loginErrors">
+            {errors?.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+          <div className="credentialInput">
+            <label>Username or Email</label>
+            <input
+              onChange={(e) => setCredential(e.target.value)}
+              value={credential}
+              required
+            ></input>
+          </div>
+          <div className="passInput">
+            <label>Password</label>
+            <input
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              required
+            ></input>
+          </div>
+          <button type="submit" className="loginBtn">
+            Login
+          </button>
+        </form>
+        <div className="demoBtn">
+          <button onClick={demoLogin}>Demo User</button>
         </div>
-        <div className="passInput">
-          <label>Password</label>
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            required
-          ></input>
-        </div>
-        <button type="submit" className="loginBtn">Login</button>
-      </form>
+
+        <button className="registerBtn" onClick={registerFunc}>
+          Register User
+        </button>
+      </div>
+      <img
+        className="loginImg"
+        src="https://mariposafolk.com/wp-content/uploads/2020/03/2431-MFF_WebBanner_2.2.1FestivalAtAGlance-aspect-ratio-5-6.jpg"
+      ></img>
     </div>
   );
 };

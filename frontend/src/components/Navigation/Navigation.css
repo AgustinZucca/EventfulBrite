@@ -11,53 +11,89 @@
 
 .profile-button {
     margin: 0px 5px;
+    margin-left: 15px;
     display: flex;
     justify-content: end;
-    background-color: orange;
+    background-color: rgb(219, 86, 41);
     border-radius: 30px;
     padding: 10px 10px;
     border: 0;
+    color: white;
 }
 
 .demoButton {
-    background-color: orange;
+    background-color: rgb(219, 86, 41);
     color: white;
     width: fit-content;
-    padding: 5px 5px;
+    padding: 0px 5px;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .createEventLink {
     text-decoration: none;
-    color: rgb(67, 67, 255);
+    color: rgb(219, 86, 41);
 }
 
 .createEventButton {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: blue;
+    color: rgb(219, 86, 41);
     margin: 0px 5px;
 }
 
 .browseEventsLink {
     text-decoration: none;
-    color: rgb(67, 67, 255);
+    color: rgb(219, 86, 41);
 }
 
 .browseEventsButton {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: blue;
+    color: rgb(219, 86, 41);
     margin: 0px 5px;
+}
+
+.userButtons {
+    display: flex;
+    align-items: center;
+}
+
+.userButtons > div{
+    margin: 0 10px;
+}
+
+.siteLogoNavbar > img {
+    width: 40px;
+    height: 40px;
+}
+
+.siteLogoNavbar {
+    display: flex;
+    align-items: center;
+    color: rgb(219, 86, 41);
 }
 
 .navbar {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
     background-color: white;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
     padding: 10px;
+}
+
+.browseTicketsLink {
+    text-decoration: none;
+    color: rgb(219, 86, 41);
+}
+
+.browseTicketsButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(219, 86, 41);
+    margin: 0px 5px;
 }

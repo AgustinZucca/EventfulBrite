@@ -10,6 +10,8 @@ import * as eventActions from "./store/events"
 import EventsPage from "./components/EventsPage";
 import SingleEventPage from "./components/SingleEventPage";
 import EditEventPage from './components/EditEventPage'
+import UserTicketsPage from "./components/UserTicketsPage";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -39,7 +41,10 @@ function App() {
           <Route exact path="/events/:id">
             <SingleEventPage />
           </Route>
-          <Route exact path={["/events", "/"]}>
+          <Route exact path="/tickets/:userId">
+            <UserTicketsPage />
+          </Route>
+          <Route exact path={["/events", "/", "/event"]}>
             <EventsPage />
           </Route>
         </Switch>

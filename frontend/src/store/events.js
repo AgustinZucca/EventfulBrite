@@ -109,7 +109,7 @@ const eventsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case CREATE_EVENT:
-      newState = { ...state, event: action.payload };
+      newState = { ...state, events: action.payload };
       return newState;
     case UPDATE_EVENT:
       newState = { ...state };
