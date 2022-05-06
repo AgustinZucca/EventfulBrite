@@ -21,7 +21,7 @@ const Navigation = () => {
           <NavLink to="/events" style={{textDecoration: 'none'}}>
             <div className="siteLogoNavbar">
               <img src="/images/EventLogo.png"></img>
-              <h3>EventFulBrite</h3>
+              <h3>entFulBrite</h3>
             </div>
           </NavLink>
           <div className="userButtons">
@@ -54,7 +54,7 @@ const Navigation = () => {
         <NavLink to="/events" style={{textDecoration: 'none'}}>
             <div className="siteLogoNavbar">
               <img src="/images/EventLogo.png"></img>
-              <h3>EventFulBrite</h3>
+              <h3>entFulBrite</h3>
             </div>
           </NavLink>
         <div className="userButtons">
