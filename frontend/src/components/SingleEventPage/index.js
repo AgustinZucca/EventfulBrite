@@ -37,7 +37,9 @@ const SingleEventPage = () => {
   };
 
   const ticketClick = (e) => {
-    setTicketModal(true);
+    if (sessionUser) {
+      setTicketModal(true);
+    } else history.push('/login')
   };
 
   const closeModal = (e) => {

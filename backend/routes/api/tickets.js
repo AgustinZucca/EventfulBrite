@@ -33,8 +33,9 @@ router.post(
   })
 );
 
+//Delete a ticket
 router.delete(
-  "/:id",
+  "/:userId/:id",
   asyncHandler(async (req, res) => {
     const ticket = await Ticket.findByPk(req.params.id);
     await ticket.destroy();
