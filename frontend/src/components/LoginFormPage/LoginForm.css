@@ -1,13 +1,21 @@
 .loginPage {
-    width: 50%;
+    width: 100vw;
+    height: 100vh;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
 }
 
 .loginForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    width: 50%;
+}
+
+
+.loginImg {
+    width: 50%;
+    height: 100%;
 }
 
 .credentialInput {
@@ -45,6 +53,15 @@
 
 .loginForm > h1 {
     color: rgb(32, 7, 59);
+    font-size: 60px;
+    margin: 0;
+}
+
+.loginErrors {
+    color: red;
+    font-size: 15px;
+    list-style: none;
+    padding: 0;
 }
 
 .loginForm > input {
@@ -61,12 +78,39 @@
     background-color: rgb(198, 58, 27);
     transition: .2s;
     color: white;
-    padding: 10px 60px;
+    padding: 15px 120px;
     border: 0px;
     border-radius: 5px;
+    font-size: 15px;
+    margin-top: 10px;
 }
 
 .loginBtn:hover {
     background-color: rgb(198, 58, 27, .925);
     cursor: pointer;
+}
+
+.demoBtn {
+    padding: 30px;
+    border-bottom: 1px solid black;
+}
+
+.demoBtn > button {
+    padding: 15px 100px;
+    border-radius: 5px;
+    background-color: rgb(255, 157, 0);
+    border: 0;
+    font-size: 15px;
+    color: white;
+}
+
+.registerBtn {
+    margin-top: 20px;
+    background-color: rgb(198, 58, 27);
+    transition: .2s;
+    color: white;
+    padding: 15px 100px;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 15px;
 }
