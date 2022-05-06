@@ -17,13 +17,8 @@ const LoginFormPage = () => {
 
   if (sessionUser) return history.push("/events");
 
-  const demoLogin = () => {
-    // return dispatch(sessionActions.loginUser({ demoCredential, demoPassword })).catch(
-    //   async (res) => {
-    //     const data = await res.json();
-    //     if (data && data.errors) setErrors(data.errors);
-    //   }
-    // );
+  const demoLogin = (e) => {
+    return dispatch(sessionActions.loginUser({ demoCredential, demoPassword }));
   };
 
   const handleSubmit = async (e) => {
@@ -72,9 +67,6 @@ const LoginFormPage = () => {
             Login
           </button>
         </form>
-        <div className="demoBtn">
-          <button onClick={demoLogin}>Demo User</button>
-        </div>
 
         <button className="registerBtn" onClick={registerFunc}>
           Register User

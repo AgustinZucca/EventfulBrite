@@ -11,6 +11,8 @@
     align-items: center;
     justify-content: center;
     width: 50%;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
 }
 
 
@@ -107,7 +109,7 @@
 
 .registerBtn {
     margin-top: 20px;
-    background-color: rgb(198, 58, 27);
+    background-color: rgb(244, 167, 0);
     transition: .2s;
     color: white;
     padding: 15px 100px;
