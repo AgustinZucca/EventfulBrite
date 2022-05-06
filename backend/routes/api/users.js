@@ -8,7 +8,7 @@ const { userValidators } = require('../../utils/userValidations.js');
 const router = express.Router();
 
 //CREATE A NEW USER -- POST /api/users 
-router.post('/', userValidators, asyncHandler(async (req, res) => {
+router.post('/', asyncHandler(async (req, res) => {
     const { email, password, username } = req.body;
     const user = await User.signup({email, password, username})
 

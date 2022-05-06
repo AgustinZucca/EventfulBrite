@@ -1,7 +1,8 @@
 .eventsPage {
+    width: 60vw;
     position: absolute;
-    left: 200px;
-    width: 1100px;
+    left: 20%;
+    margin: 0 auto;
 }
 
 
@@ -40,4 +41,5 @@
 .squareImg {
     height: 125px;
     object-fit: cover;
+    cursor: pointer;
 }

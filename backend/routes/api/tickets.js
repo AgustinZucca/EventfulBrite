@@ -39,7 +39,7 @@ router.delete(
   asyncHandler(async (req, res) => {
     const ticket = await Ticket.findByPk(req.params.id);
     await ticket.destroy();
-    return;
+    return res.json(req.params.id);
   })
 );
 

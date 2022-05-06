@@ -32,10 +32,10 @@ const UserTicketsPage = () => {
   }
 
   const refundTicket = (e, ticketId) => {
+    setIsLoaded(false)
     dispatch(ticketActions.deleteTicket(sessionUser.id, ticketId)).then(() =>
-      dispatch(ticketActions.loadTickets(sessionUser.id))
+      dispatch(ticketActions.loadTickets(sessionUser.id)).then(() => setIsLoaded(true))
     );
-    window.location.reload();
   };
 
   if (isLoaded && tickets.length > 0) {

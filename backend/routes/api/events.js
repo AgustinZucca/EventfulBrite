@@ -38,12 +38,13 @@ router.post('/new', validateEventCreation, requireAuth, asyncHandler(async (req,
 }))
 
 router.put('/:id/edit', validateEventCreation, requireAuth, asyncHandler(async (req, res) => {
-    const { id, hostId, name, categoryId, description, date, location} = req.body
+    const { id, img, name, categoryId, description, date, location} = req.body
     console.log(req.body)
     const event = await Event.findByPk(id)
     event.name = name
     event.description = description
     event.date = date
+    event.img = img
     event.location = location
     event.categoryId = categoryId
     await event.save()

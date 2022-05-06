@@ -40,6 +40,7 @@ const EditEventPage = () => {
       categoryId: category,
       name: name,
       date: date,
+      img: img,
       description: description,
       location: location,
       capacity: capacity,
@@ -84,12 +85,12 @@ const EditEventPage = () => {
           </div>
           <div className="eventDescriptionInput formInput">
             <label className="eventcreatelabel">Event description</label>
-            <input
+            <textarea
               onChange={(e) => setDescription(e.target.value)}
               value={description}
               required
               placeholder="Tell people what your event is all about!"
-            ></input>
+            ></textarea>
           </div>
           <div className="categorySelection formInput">
             <label className="eventcreatelabel">Category</label>
@@ -138,6 +139,8 @@ const EditEventPage = () => {
               Tell event-goers when your event starts so they can make plans to
               attend.
             </p>
+            <p>{`Previous Date: ${singleEvent.date.slice(0,10)}`}</p>
+            <p>{`Previous Time: ${singleEvent.date.slice(11, 16)}`}</p>
           </div>
           <div className="formInput">
             <label className="eventcreatelabel">Date</label>

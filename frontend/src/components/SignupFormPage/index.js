@@ -18,15 +18,39 @@ const SignupFormPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      setErrors([]);
-      return dispatch(
-        sessionActions.signup({ username, email, password })
-      ).catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      });
+    const err = [];
+
+    if (username) {
+      if (username.length < 4)
+        err.push("Please provide a username longer than 4 characters");
     }
+
+    if (email) {
+      if (!email.includes("@")) {
+        err.push("Please provide a valid email.");
+      }
+    }
+
+    if (password) {
+      if (password.length < 6) {
+        err.push("Password must have at least 6 characters");
+      }
+    }
+
+    if (password !== confirmPassword) {
+      err.push("Password and confirm password must be the same");
+    }
+
+    setErrors(err);
+
+    if (errors.length === 0) {
+      if (password === confirmPassword) {
+        setErrors([]);
+        return dispatch(sessionActions.signup({ username, email, password }));
+      }
+    }
+
+    return;
   };
 
   const logInFunc = () => {
