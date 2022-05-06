@@ -36,3 +36,8 @@
 .date {
     color: orange;
 }
+
+.squareImg {
+    height: 125px;
+    object-fit: cover;
+}

@@ -48,7 +48,7 @@ const EditEventPage = () => {
     );
 
     if (event) {
-      history.push("/events");
+      history.push(`/events/${event.id}`);
       return;
     }
 

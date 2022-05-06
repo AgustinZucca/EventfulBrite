@@ -98,8 +98,10 @@ export const removeEvent = (id) => async (dispatch) => {
     method: "DELETE",
   });
   if (res.ok) {
-    dispatch(remove(id));
-    return res;
+
+    const idDel = await res.json()
+    dispatch(remove(idDel));
+    return idDel;
   }
 };
 

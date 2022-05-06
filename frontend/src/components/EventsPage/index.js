@@ -35,6 +35,7 @@ const EventsPage = () => {
                 <img
                   style={{ width: 250 }}
                   onClick={handleClick}
+                  className='squareImg'
                   id={`${id}`} src={img}></img>
                 <div className="eventSquareInfo">
                   <h3 onClick={handleClick}>{name}</h3>

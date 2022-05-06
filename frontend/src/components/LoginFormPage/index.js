@@ -74,7 +74,7 @@ const LoginFormPage = () => {
       </div>
       <img
         className="loginImg"
-        src="https://mariposafolk.com/wp-content/uploads/2020/03/2431-MFF_WebBanner_2.2.1FestivalAtAGlance-aspect-ratio-5-6.jpg"
+        src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?cs=srgb&dl=pexels-wendy-wei-1190297.jpg&fm=jpg"
       ></img>
     </div>
   );

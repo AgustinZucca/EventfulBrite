@@ -31,23 +31,22 @@ const SingleEventPage = () => {
   };
 
   const removeBtnClick = async (e, id) => {
-    await dispatch(eventActions.removeEvent(id));
-    const path = `/events`;
-    return history.push(path);
+    await dispatch(eventActions.removeEvent(id))
+    history.push('/events');
   };
 
   const ticketClick = (e) => {
     if (sessionUser) {
       setTicketModal(true);
-    } else history.push('/login')
+    } else history.push("/login");
   };
 
   const closeModal = (e) => {
-    setTicketModal(false)
-  }
+    setTicketModal(false);
+  };
 
   const checkout = (e, eventId, userId) => {
-    e.preventDefault()
+    e.preventDefault();
     if (tickets > 0) {
       for (let i = 0; i < tickets; i++) {
         dispatch(ticketActions.createTicket({ userId, eventId }));
@@ -81,7 +80,23 @@ const SingleEventPage = () => {
                 Delete Event
               </button>
             </div>
-            <div className="lowerPart"></div>
+            <div className="lowerPart">
+              <div className="lowerPartLeft">
+                <div className="eventDescription">
+                  <p>{description}</p>
+                </div>
+              </div>
+              <div className="lowerPartRight">
+                <div className="eventInfo">
+                  <h3>Date and time</h3>
+                  <p>
+                    {date.slice(0, 10)} {date.slice(11, 16)}
+                  </p>
+                  <h3>Location</h3>
+                  <p>{location}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       );
@@ -109,7 +124,9 @@ const SingleEventPage = () => {
                         onChange={(e) => setTickets(e.target.value)}
                         value={tickets}
                       >
-                        <option hidden value={0}>0</option>
+                        <option hidden value={0}>
+                          0
+                        </option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
