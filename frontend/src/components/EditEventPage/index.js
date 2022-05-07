@@ -15,7 +15,7 @@ const EditEventPage = () => {
     (category) => category?.id === singleEvent?.categoryId
   );
   const [name, setName] = useState(singleEvent?.name);
-  const [date, setDate] = useState(singleEvent?.date);
+  const [date, setDate] = useState(singleEvent?.date.slice(0,16));
   const [description, setDescription] = useState(singleEvent?.description);
   const [category, setCategory] = useState(singleCategory?.id);
   const [img, setImg] = useState(singleEvent?.img);
