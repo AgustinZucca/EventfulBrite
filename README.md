@@ -7,7 +7,7 @@ EventFulBrite is an application where users can get tickets for events they are 
 
 EventFulBrite allows users to get tickets to their favorite events. If a user is also interested in hosting an event they can create an event that will be displayed to other users in the application.
 
-#Getting Started 
+# Getting Started 
 
 1. Clone this repository
 
