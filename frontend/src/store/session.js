@@ -44,9 +44,11 @@ export const signup = (user) => async (dispatch) => {
       password,
     }),
   });
-  const data = await res.json();
-  dispatch(login(data.user));
-  return data;
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(login(data.user));
+    return res;
+  }
 };
 
 export const logoutUser = () => async (dispatch) => {
