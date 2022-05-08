@@ -32,9 +32,11 @@ const UserTicketsPage = () => {
   }
 
   const refundTicket = (e, ticketId) => {
-    setIsLoaded(false)
+    setIsLoaded(false);
     dispatch(ticketActions.deleteTicket(sessionUser.id, ticketId)).then(() =>
-      dispatch(ticketActions.loadTickets(sessionUser.id)).then(() => setIsLoaded(true))
+      dispatch(ticketActions.loadTickets(sessionUser.id)).then(() =>
+        setIsLoaded(true)
+      )
     );
   };
 
@@ -50,14 +52,15 @@ const UserTicketsPage = () => {
               .map(({ Event, id }) => (
                 <div className={`ticketSquare`}>
                   <img
-                    style={{ width: 250 }}
                     onClick={(e) => handleClick(e, Event.id)}
                     id={`${Event.id}`}
                     src={Event.img}
                   ></img>
                   <div className="ticketSquareInfo">
                     <p>TicketId: {id}</p>
-                    <h3>{Event.name}</h3>
+                    <h3 onClick={(e) => handleClick(e, Event.id)}>
+                      {Event.name}
+                    </h3>
                     <p className="date">{Event.date.slice(0, 10)}</p>
                     <p>{`${Event.location.slice(0, 40)}...`}</p>
                     <button onClick={(e) => refundTicket(e, id)}>
@@ -72,7 +75,7 @@ const UserTicketsPage = () => {
     );
   } else if (isLoaded && tickets.length === 0) {
     return (
-      <div className='noTickets'>
+      <div className="noTickets">
         <h1>No tickets to show :(</h1>
       </div>
     );
