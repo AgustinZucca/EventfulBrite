@@ -56,11 +56,6 @@ export const fetchEvents = () => async (dispatch) => {
   dispatch(loadEvents(events));
 };
 
-// export const fetchFromBrowse = () => async (dispatch) => {
-//   const res = await fetch('/');
-//   const events = await res.json()
-//   dispatch(loadEvents(events))
-// }
 
 export const createEvent = (payload) => async (dispatch) => {
   const res = await csrfFetch("/api/events/new", {

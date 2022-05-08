@@ -11,7 +11,6 @@ const SingleEventPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const categories = useSelector((state) => state.events.categories);
   const events = useSelector((state) => state.events.events);
   const singleEvent = events.find((event) => event.id === parseInt(eventId));
   const { date, name, id, img, location, capacity, description } = singleEvent;

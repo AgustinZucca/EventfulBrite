@@ -28,7 +28,7 @@ const EventsPage = () => {
           src="https://cdn.evbstatic.com/s3-build/fe/build/images/baedf009bb329458ae80eb599fb8a4d5-3_tablet_1067x470.jpg"
         ></img>
         <div className="eventsPage">
-          <h2 className="browseTitle">Browse Events</h2>
+          <h1 className="browseTitle">Browse Events</h1>
           <div className="eventsDisplay">
             {events.slice(0).reverse().map(({ id, name, date, location, img }) => (
               <div className={`eventSquare`}>

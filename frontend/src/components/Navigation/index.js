@@ -3,12 +3,17 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
+import { useEffect } from "react";
 
 const Navigation = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const credential = "demouser";
   const password = "password";
+
+  useEffect(() => {
+    dispatch(sessionActions.restoreUser())
+  }, [dispatch])
 
   const demoLogin = () => {
     return dispatch(sessionActions.loginUser({ credential, password }));

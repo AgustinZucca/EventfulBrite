@@ -100,3 +100,14 @@ input {
     background-color: rgb(198, 58, 27, .925);
     cursor: pointer;
 }
+
+.registerBtn:hover {
+    cursor: pointer;
+}
+
+.signupErrors {
+    color: red;
+    font-size: 15px;
+    padding: 0;
+    width: 80%;
+}
