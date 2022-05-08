@@ -1,108 +1,108 @@
 .profile-dropdown {
-    position: absolute;
-    top: 7%;
-    right: 1%;
-    z-index: 10000;
-    padding: 5px 10px;
-    border: 1px solid rgba(0, 0, 0, 0.491);
-    border-radius: 4px;
-    width: fit-content;
-    background-color: white;
+  position: absolute;
+  top: 7%;
+  right: 1%;
+  z-index: 10000;
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.491);
+  border-radius: 4px;
+  width: fit-content;
+  background-color: white;
 }
 
 .profile-dropdown > button {
-    padding: 5px;
-    background-color: red;
-    border: 0;
-    border-radius: 5px;
-    color: white;
+  padding: 5px;
+  background-color: rgb(219, 86, 41);
+  border: 0;
+  border-radius: 5px;
+  color: white;
 }
 
 .profile-button {
-    margin: 0px 5px;
-    margin-left: 15px;
-    display: flex;
-    justify-content: end;
-    background-color: rgb(219, 86, 41);
-    border-radius: 30px;
-    padding: 10px 10px;
-    border: 0;
-    color: white;
+  margin: 0px 5px;
+  margin-left: 15px;
+  display: flex;
+  justify-content: end;
+  background-color: rgb(219, 86, 41);
+  border-radius: 30px;
+  padding: 10px 10px;
+  border: 0;
+  color: white;
 }
 
 .demoButton {
-    background-color: rgb(219, 86, 41);
-    color: white;
-    width: fit-content;
-    padding: 0px 5px;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: rgb(219, 86, 41);
+  color: white;
+  width: fit-content;
+  padding: 0px 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .createEventLink {
-    text-decoration: none;
-    color: rgb(219, 86, 41);
+  text-decoration: none;
+  color: rgb(219, 86, 41);
 }
 
 .createEventButton {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(219, 86, 41);
-    margin: 0px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(219, 86, 41);
+  margin: 0px 5px;
 }
 
 .browseEventsLink {
-    text-decoration: none;
-    color: rgb(219, 86, 41);
+  text-decoration: none;
+  color: rgb(219, 86, 41);
 }
 
 .browseEventsButton {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(219, 86, 41);
-    margin: 0px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(219, 86, 41);
+  margin: 0px 5px;
 }
 
 .userButtons {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.userButtons > div{
-    margin: 0 10px;
+.userButtons > div {
+  margin: 0 10px;
 }
 
 .siteLogoNavbar > img {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .siteLogoNavbar {
-    display: flex;
-    align-items: center;
-    color: rgb(219, 86, 41);
+  display: flex;
+  align-items: center;
+  color: rgb(219, 86, 41);
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.476);
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.476);
+  padding: 10px;
 }
 
 .browseTicketsLink {
-    text-decoration: none;
-    color: rgb(219, 86, 41);
+  text-decoration: none;
+  color: rgb(219, 86, 41);
 }
 
 .browseTicketsButton {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(219, 86, 41);
-    margin: 0px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(219, 86, 41);
+  margin: 0px 5px;
 }
