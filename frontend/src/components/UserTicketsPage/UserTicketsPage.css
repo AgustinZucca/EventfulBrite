@@ -1,57 +1,74 @@
 .ticketsPage {
-    position: absolute;
-    left: 200px;
-    width: 1100px;
+  position: absolute;
+  left: 20vw;
+  width: 1100px;
 }
 
-
 .ticketTitle {
-    margin: 20px 10px;
+  margin: 20px 10px;
 }
 
 .ticketsDisplay {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .ticketSquare > img {
-    height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .ticketSquare > img:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .ticketSquare {
-    text-decoration: none;
-    text-decoration-color: black;
-    margin: 10px 10px;
-    width: 250px;
-    height: fit-content;
-    border: .2px solid rgba(0, 0, 0, 0.465);
-    transition: .5s;
+  text-decoration: none;
+  text-decoration-color: black;
+  margin: 10px 10px;
+  width: 250px;
+  height: fit-content;
+  border: 0.2px solid rgba(0, 0, 0, 0.465);
+  transition: 0.5s;
 }
 .ticketSquare:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.493);
-    border: .2px solid rgba(0, 0, 0, 0.465);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.493);
+  border: 0.2px solid rgba(0, 0, 0, 0.465);
 }
 
 .ticketSquareInfo {
-    padding: 10px;
-    border-top: .5px solid black;
+  padding: 10px;
+  border-top: 0.5px solid black;
+}
+
+.ticketSquareInfo > h3 {
+  cursor: pointer;
 }
 
 .ticketSquareInfo > button {
-    display: flex;
-    justify-content: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px;
+  border-radius: 4px;
+  border: 0;
+  background-color: rgb(255, 0, 0);
+  font-size: 15px;
+  color: white;
+  transition: .2s;
+}
+
+.ticketSquareInfo > button:hover {
+  
+    box-shadow: 0px 0px 5px rgb(255, 0, 0);
 }
 
 .date {
-    color: rgb(255, 136, 0);
+  color: rgb(255, 136, 0);
 }
 
 .noTickets {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }

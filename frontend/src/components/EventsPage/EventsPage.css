@@ -43,3 +43,9 @@
     object-fit: cover;
     cursor: pointer;
 }
+
+.eventSquareInfo > h3 {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
