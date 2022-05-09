@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .formInput {
@@ -24,6 +25,8 @@
   background-color: transparent;
   padding: 0;
   margin-right: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
 }
 
 .createEventForm > div > textarea {
@@ -34,8 +37,8 @@
   resize: none;
   border: 0;
   outline: none;
-  font-size: 15px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .eventDescriptionInput {
@@ -78,4 +81,9 @@
 
 .createBtn:hover {
   cursor: pointer;
+}
+
+.createEventErrors {
+  color: red;
+  font-weight: bold;
 }

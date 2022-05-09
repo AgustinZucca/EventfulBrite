@@ -32,6 +32,7 @@ const EditEventPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    window.scrollTo(0, 0)
     setErrors([]);
 
     const newEvent = {
@@ -69,7 +70,7 @@ const EditEventPage = () => {
               details that highlight what makes it unique.
             </p>
           </div>
-          <ul>
+          <ul className="createEventErrors">
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
             ))}

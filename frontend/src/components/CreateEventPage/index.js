@@ -15,7 +15,7 @@ const CreateEventFormPage = () => {
   const [img, setImg] = useState("");
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
-  const [capacity, setCapacity] = useState(0);
+  const [capacity, setCapacity] = useState();
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -29,6 +29,7 @@ const CreateEventFormPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    window.scrollTo(0, 0)
     setErrors([]);
 
     const newEvent = {
@@ -66,7 +67,7 @@ const CreateEventFormPage = () => {
               details that highlight what makes it unique.
             </p>
           </div>
-          <ul>
+          <ul className="createEventErrors">
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
             ))}
@@ -158,6 +159,7 @@ const CreateEventFormPage = () => {
               onChange={(e) => setCapacity(e.target.value)}
               value={capacity}
               required
+              placeholder="Enter event capacity"
             ></input>
           </div>
           <div className="submit">

@@ -12,14 +12,21 @@ const validateEventCreation = [
         .exists({checkFalsy: true})
         .isLength({max: 255})
         .withMessage('Name of event must not be over 255 characters'),
+    check('categoryId')
+        .exists({checkFalsy: true})
+        .withMessage('Event must have a category'),
     check('description')
         .exists({checkFalsy: true})
-        .withMessage('Please provide a description for the event.'),
+        .withMessage('Please provide a description for the event'),
     check('location')
         .exists({checkFalsy: true})
         .withMessage('Your event must have a location'),
     check('capacity')
-        .exists({checkFalsy: true}),
+        .exists({checkFalsy: true})
+        .isNumeric({no_symbols: true})
+        .not()
+        .equals(0)
+        .withMessage('Capacity must be greater than 0'),
     handleValidationErrors
 ];
 
@@ -39,7 +46,6 @@ router.post('/new', validateEventCreation, requireAuth, asyncHandler(async (req,
 
 router.put('/:id/edit', validateEventCreation, requireAuth, asyncHandler(async (req, res) => {
     const { id, img, name, categoryId, description, date, location} = req.body
-    console.log(req.body)
     const event = await Event.findByPk(id)
     event.name = name
     event.description = description
